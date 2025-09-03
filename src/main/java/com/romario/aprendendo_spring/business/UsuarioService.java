@@ -2,6 +2,7 @@ package com.romario.aprendendo_spring.business;
 
 import com.romario.aprendendo_spring.infrastructure.entity.Usuario;
 import com.romario.aprendendo_spring.infrastructure.exceptions.ConflictException;
+import com.romario.aprendendo_spring.infrastructure.exceptions.ResourceNotFoundException;
 import com.romario.aprendendo_spring.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -38,6 +39,15 @@ public class UsuarioService {
 
     public boolean verificaEmailExistente(String email){
         return usuarioRepository.existsByEmail(email);
+    }
+
+    public Usuario buscaUsuarioPorEmail(String email){
+        return usuarioRepository.findByEmail(email).orElseThrow(
+                () -> new ResourceNotFoundException("email nao encontrado " + email));
+    }
+
+    public void deletaUsuarioPorEmail(String email){
+        usuarioRepository.deleteByEmail(email);
     }
 
 }
