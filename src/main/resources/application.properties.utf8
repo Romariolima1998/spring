@@ -1,13 +1,13 @@
 spring.application.name=aprendendo-spring
 
-# URL de conex„o com o banco
+# URL de conex√£o com o banco
 spring.datasource.url=jdbc:postgresql://localhost:5432/db_usuario
 
-# Usu·rio e senha do PostgreSQL
+# Usu√°rio e senha do PostgreSQL
 spring.datasource.username=postgres
 spring.datasource.password=1998
 
-# ConfiguraÁ„o do JPA/Hibernate
+# Configura√ß√£o do JPA/Hibernate
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
